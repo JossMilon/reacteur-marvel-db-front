@@ -14,7 +14,7 @@ const Characters = ({fav, setFav}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/characters?limit=100&skip=${skip}&name=${search}`);
+                const response = await axios.get(`https://marvel-back-jm.herokuapp.com/characters?limit=100&skip=${skip}&name=${search}`);
                 setData(response.data);
                 setIsLoading(false);
             }

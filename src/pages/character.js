@@ -12,9 +12,9 @@ const Character = ({fav, setFav}) => {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
-            const charResponse = await axios.get(`http://localhost:3000/character/${id}`)
+            const charResponse = await axios.get(`https://marvel-back-jm.herokuapp.com/character/${id}`)
             setCharData(charResponse.data);
-            const comResponse = await axios.get(`http://localhost:3000/comics/${id}`)
+            const comResponse = await axios.get(`https://marvel-back-jm.herokuapp.com/comics/${id}`)
             setComicsData(comResponse.data);
             setIsLoading(false);
         }

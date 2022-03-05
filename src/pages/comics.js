@@ -13,7 +13,7 @@ const Comics = ({fav, setFav}) => {
         const [search, setSearch] = useState("");
         useEffect(() => {
             const fetchData = async () => {
-                const response = await axios.get(`http://localhost:3000/comics?apiKey=GCX9NQEtCftNAXRG&limit=100&skip=${skip}&title=${search}`);
+                const response = await axios.get(`https://marvel-back-jm.herokuapp.com/comics?apiKey=GCX9NQEtCftNAXRG&limit=100&skip=${skip}&title=${search}`);
                 setData(response.data);
                 setIsLoading(false);
             }
