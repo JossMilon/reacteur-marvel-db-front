@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+.container {
+  margin: auto;
+  max-width: 1300px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+} 
+
+// Handle case initial loading
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 96px);
+  font-family: 'Roboto', sans-serif;
+  font-size: 34px;
+}
+
+// Handle case no item in grid
+
+.noResult {
+  grid-area: 1/1/2/4; 
+  text-align: center;
+  font-size: 34px;
+  line-height: 38px;
+}
+
+// Navbar
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202020;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  height: 96px;
+  a {
+    width: 100%;
+    div {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #393939;
+    }
+  }
+  ul {
+    display: flex;
+    a {
+      text-decoration: none;
+      margin: 0 20px;
+    }
+    li {
+      padding: 15px 0;
+      list-style-type: none;
+      font-weight: 700;
+      font-size: 12px;
+      color: white;
+      &:hover {
+        border-bottom: 3px solid red;
+      }
+    }
+  }
+}
+
+// Search & pagination
+
+.search, .pagination {
+  display:flex;
+  justify-content: center;
+  margin: 15px;
+  input {
+    width: 500px;
+    padding: 16px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  button {
+    cursor: pointer;
+    width: 100px;
+    margin: 0 5px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #202020;
+    background-color: white;
+    padding: 10px;
+    border: none;
+    margin-bottom: 30px;
+    &:disabled {
+      color: grey;
+      cursor: auto ;
+    }
+  }
+}
+
+//Grids
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 30px;
+  color: #202020;
+}
+
+// All Comics tile (including if diplayed on fav page)
+
+.comicContainer, .favContainer {
+  .tile {
+    position: relative;
+    justify-self: center;
+    width: 400px;
+    display: flex;
+    min-height: 295px;
+    .imageContainer {
+      height: 100%;
+      flex: 1;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        box-shadow: 3px 3px 5px grey;
+      }
+    }
+    .description {
+      -webkit-line-clamp: 10;
+    }
+    .fav {
+      left: 200px;
+      bottom: 0;
+    }
+  }
+}
+
+// All Characters tile (including if displayed on fav page)
+
+.characterContainer, .favContainer {
+  .tile {
+    position: relative;
+    justify-self: center;
+    a {
+      width: 400px;
+      display: flex;
+      text-decoration: none;
+      color: #202020;
+      .imageContainer {
+        flex: 1;
+        height: 150px;
+        width: 150px;
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          box-shadow: 3px 3px 5px grey;
+        }
+      }
+      .description {
+        -webkit-line-clamp: 4;
+      }
+    }
+    .fav {
+      left: 200px;
+      bottom: 0;
+    }
+  }
+}
+
+// Single Characters tile
+
+.SingleCharacterContainer {
+  display: flex;
+  justify-content: center;
+  margin: 45px 0;
+  position: relative;
+  .tile {
+    display: flex;
+    width: 600px;
+    .imageContainer {
+      flex: 1;
+      height: 300px;
+      width: 300px;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        box-shadow: 3px 3px 5px grey;
+      }
+    }
+  }
+}
+
+// Description containers common to all tiles
+
+.descriptionContainer {
+  flex: 1;
+  padding: 10px;
+  .title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 18px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Favorite styling with absolute positioning different for comic and character
+
+.favContainer {
+  margin-top: 45px;
+}
+
+.fav {
+  width: fit-content;
+  position: absolute;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.com {
+  bottom: 0;
+}
+
+.char {
+  top: 136px;
+}
+
+.SingleCharacterContainer {
+  .com {
+    display: none;
+  }
+}
